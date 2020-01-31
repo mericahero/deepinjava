@@ -13,17 +13,17 @@
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/com.lmax/disruptor -->
-<!--        <dependency>-->
-<!--            <groupId>com.lmax</groupId>-->
-<!--            <artifactId>disruptor</artifactId>-->
-<!--            <version>3.4.2</version>-->
-<!--        </dependency>-->
-
         <dependency>
-            <groupId>com.meric</groupId>
-            <artifactId>sdisruptor</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <groupId>com.lmax</groupId>
+            <artifactId>disruptor</artifactId>
+            <version>3.4.2</version>
         </dependency>
+
+<!--        <dependency>-->
+<!--            <groupId>com.meric</groupId>-->
+<!--            <artifactId>sdisruptor</artifactId>-->
+<!--            <version>1.0-SNAPSHOT</version>-->
+<!--        </dependency>-->
 
     </dependencies>
 
