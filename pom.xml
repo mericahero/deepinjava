@@ -22,16 +22,22 @@
     </dependencies>
 
     <modules>
-        <module>SpringMVC</module>
-        <module>concurrent</module>
-        <module>lnetty</module>
-        <module>hotreload</module>
-        <module>ldisruptor</module>
-        <module>sdisruptor</module>
-        <module>lpool</module>
-        <module>disruptor-netty-client</module>
-        <module>disruptor-netty-server</module>
-        <module>disruptor-netty-common</module>
+        <!--foundation modules-->
+        <module>f.concurrent</module>
+        <module>f.hotreload</module>
+
+        <!--framework modules-->
+        <module>fr.SpringMVC</module>
+        <module>fr.lnetty</module>
+
+
+        <!--utility modules-->
+        <module>u.lpool</module>
+        <!--utility disruptor -->
+        <module>u.disruptor.ldisruptor</module>
+        <module>u.disruptor.disruptor-netty-client</module>
+        <module>u.disruptor.disruptor-netty-server</module>
+        <module>u.disruptor.disruptor-netty-common</module>
     </modules>
 
     <build>
