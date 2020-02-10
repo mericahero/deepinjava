@@ -22,22 +22,24 @@
     </dependencies>
 
     <modules>
-        <!--foundation modules-->
-        <module>f.concurrent</module>
-        <module>f.hotreload</module>
+<!--        &lt;!&ndash;foundation modules&ndash;&gt;-->
+<!--        <module>f.concurrent</module>-->
+<!--        <module>f.hotreload</module>-->
 
-        <!--framework modules-->
-        <module>fr.SpringMVC</module>
-        <module>fr.lnetty</module>
+<!--        &lt;!&ndash;framework modules&ndash;&gt;-->
+<!--        <module>fr.SpringMVC</module>-->
+<!--        <module>fr.lnetty</module>-->
 
 
-        <!--utility modules-->
-        <module>u.lpool</module>
-        <!--utility disruptor -->
-        <module>u.disruptor.ldisruptor</module>
-        <module>u.disruptor.disruptor-netty-client</module>
-        <module>u.disruptor.disruptor-netty-server</module>
-        <module>u.disruptor.disruptor-netty-common</module>
+<!--        &lt;!&ndash;utility modules&ndash;&gt;-->
+<!--        <module>u.lpool</module>-->
+<!--        &lt;!&ndash;utility disruptor &ndash;&gt;-->
+<!--        <module>u.disruptor.ldisruptor</module>-->
+<!--        <module>u.disruptor.disruptor-netty-client</module>-->
+<!--        <module>u.disruptor.disruptor-netty-server</module>-->
+<!--        <module>u.disruptor.disruptor-netty-common</module>-->
+<!--        <module>u.disruptor.disruptor-idgenerator</module>-->
+<!--        <module>a.fiuquote</module>-->
     </modules>
 
     <build>
