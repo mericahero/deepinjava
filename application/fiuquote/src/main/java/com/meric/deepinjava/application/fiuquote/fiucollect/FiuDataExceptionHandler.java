@@ -1,33 +1,27 @@
 package com.meric.deepinjava.application.fiuquote.fiucollect;
 
 import com.meric.deepinjava.application.fiuquote.fiucollect.disruptor.FiuDataRingBufferWorker;
+import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 
-public class FiuDataHandler extends ChannelInboundHandlerAdapter {
+public class FiuDataExceptionHandler extends ChannelInboundHandlerAdapter {
 
     private FiuClient fiuClient;
 
-    public FiuDataHandler(FiuClient client) {
+    public FiuDataExceptionHandler(FiuClient client) {
         fiuClient = client;
     }
 
+
     @Override
-    public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-
-
-        try{
-            FiuDataRingBufferWorker.getInstance().invokeProduceData(p->{
-                p.sendData((String)msg,ctx);
-                System.out.println((String)msg);
-            });
-        }catch (Exception e){
-            e.printStackTrace();
-            throw e;
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+        super.exceptionCaught(ctx, cause);
+        Channel channel = ctx.channel();
+        if(channel.isActive()){
+            ctx.close();
         }
-
     }
-
 
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {

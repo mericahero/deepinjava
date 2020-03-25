@@ -55,7 +55,8 @@ public class FiuClient {
                             ch.pipeline().addLast(
                                     new DelimiterBasedFrameDecoder(1024*1024, Unpooled.copiedBuffer(new byte[]{0})),
                                     new StringDecoder(),
-                                    new FiuDataHandler(self)
+                                    new FiuDataHandler(self),
+                                    new FiuDataExceptionHandler(self)
                                     );
                         }
                     });

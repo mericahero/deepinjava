@@ -37,7 +37,6 @@ public class QuoteBootstrap {
             fiuClient.sayHello();
         });
 
-        System.in.read();
         fThread.start();
 
     }
