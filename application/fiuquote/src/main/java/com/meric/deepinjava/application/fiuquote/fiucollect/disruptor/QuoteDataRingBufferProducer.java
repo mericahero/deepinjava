@@ -19,7 +19,6 @@ public class QuoteDataRingBufferProducer {
         try{
             val origin = ringBuffer.get(sequence);
             origin.setCommand(command);
-//            origin.setChannelGroup(group);
             origin.setQuoteData(data);
         }finally {
             ringBuffer.publish(sequence);

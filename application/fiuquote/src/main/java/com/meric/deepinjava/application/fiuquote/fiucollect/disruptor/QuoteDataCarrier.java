@@ -11,4 +11,9 @@ public class QuoteDataCarrier {
 
     private Object quoteData;
 //    private ChannelGroup channelGroup;
+
+    public void reset(){
+        command=null;
+        quoteData=null;
+    }
 }

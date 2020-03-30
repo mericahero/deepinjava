@@ -9,10 +9,6 @@ import lombok.val;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Consumer;
 
@@ -33,8 +29,14 @@ public class QuoteClientSubscriber {
         quoteChannelMap = new ConcurrentHashMap<>();
     }
 
+    /**
+     * 执行客户端传来的命令
+     * @param commandStr
+     * @param ctx
+     * @return
+     */
     public boolean execCommand(String commandStr,ChannelHandlerContext ctx){
-        val commandDetail = getCommand(commandStr);
+        val commandDetail = exactCommand(commandStr);
         if(commandDetail==null){
             return false;
         }
@@ -101,7 +103,12 @@ public class QuoteClientSubscriber {
         }
     }
 
-    public Pair<String,String[]> getCommand(String commandStr){
+    /**
+     * 解析命令
+     * @param commandStr 命令字符串
+     * @return
+     */
+    public Pair<String,String[]> exactCommand(String commandStr){
         if(StringUtils.isEmpty(commandStr)){
             return null;
         }

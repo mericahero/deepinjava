@@ -7,4 +7,9 @@ import lombok.Data;
 public class FiuDataCarrier {
     String protocolData;
     ChannelHandlerContext ctx;
+
+    public void reset(){
+        protocolData=null;
+        ctx=null;
+    }
 }

@@ -81,7 +81,7 @@ public class FiuDataRingBufferWorker {
                 10,
                 60L,
                 TimeUnit.SECONDS,
-                new ArrayBlockingQueue<>(1024*1024)
+                new ArrayBlockingQueue<>(1024)
         ));
 
         initialProducerPool();

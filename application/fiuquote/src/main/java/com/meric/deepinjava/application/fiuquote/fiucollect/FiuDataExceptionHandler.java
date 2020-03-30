@@ -5,6 +5,8 @@ import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 
+
+
 public class FiuDataExceptionHandler extends ChannelInboundHandlerAdapter {
 
     private FiuClient fiuClient;
@@ -17,6 +19,7 @@ public class FiuDataExceptionHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
         super.exceptionCaught(ctx, cause);
+
         Channel channel = ctx.channel();
         if(channel.isActive()){
             ctx.close();
