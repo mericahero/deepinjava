@@ -16,6 +16,7 @@
 
     <modules>
         <module>lpool</module>
+        <module>ljson</module>
         <module>disruptor/disruptor-idgenerator</module>
         <module>disruptor/disruptor-netty-client</module>
         <module>disruptor/disruptor-netty-common</module>

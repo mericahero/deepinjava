@@ -11,10 +11,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>foundation</artifactId>
+    <packaging>pom</packaging>
 
 
     <modules>
         <module>concurrent</module>
         <module>hotreload</module>
+        <module>resume</module>
     </modules>
 </project>

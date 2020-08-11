@@ -15,8 +15,8 @@ public class QuoteBootstrap {
 
 
 
-        FiuDataRingBufferWorker.getInstance().start(10);
-        QuoteDataRingBufferWorker.getInstance().start(10);
+        FiuDataRingBufferWorker.getInstance().start(5);
+        QuoteDataRingBufferWorker.getInstance().start(5);
 
 
 
@@ -37,7 +37,6 @@ public class QuoteBootstrap {
             fiuClient.sayHello();
         });
 
-        System.in.read();
         fThread.start();
 
     }

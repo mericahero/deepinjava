@@ -14,7 +14,10 @@ import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 
 import java.security.PrivateKey;
 import java.security.PublicKey;
+import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Consumer;
 
@@ -75,7 +78,13 @@ public class QuoteDataRingBufferWorker {
 
         ringBuffer.addGatingSequences(workerPool.getWorkerSequences());
 
-        workerPool.start(Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors()*2));
+        workerPool.start(new ThreadPoolExecutor(
+                10,
+                10,
+                60L,
+                TimeUnit.SECONDS,
+                new ArrayBlockingQueue<>(1024)
+        ));
 
         initialProducerPool(ringBuffer);
 

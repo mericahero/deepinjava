@@ -34,8 +34,11 @@ public class FiuClient {
     NioEventLoopGroup workGroup = null;
 
     public void start(boolean isReconnect) throws InterruptedException {
-        if(isReconnect && retryTimes>=THRESHOLD){
-            System.err.println("连接失败，超过最大重试次数");
+        if(isReconnect){
+            if(retryTimes>=THRESHOLD){
+                System.err.println("连接失败，超过最大重试次数");
+                return;
+            }
             TimeUnit.SECONDS.sleep(retryTimes * RETRYONESLOT);
             retryTimes++;
             start(true);
@@ -55,7 +58,8 @@ public class FiuClient {
                             ch.pipeline().addLast(
                                     new DelimiterBasedFrameDecoder(1024*1024, Unpooled.copiedBuffer(new byte[]{0})),
                                     new StringDecoder(),
-                                    new FiuDataHandler(self)
+                                    new FiuDataHandler(self),
+                                    new FiuDataExceptionHandler(self)
                                     );
                         }
                     });
